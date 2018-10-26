@@ -13,8 +13,8 @@ matrix:
         - sudo apt-get update && sudo apt-get install -y azure-cli
         - npm i -g azure-functions-core-tools --unsafe-perm true
       script:
-        - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
-        - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps --force
+        - az login --service-principal --username "$AZ_SP_ID" --password "$AZ_SP_SECRET" --tenant "$AZ_TENANT_ID"
+        - az account get-access-token --query "accessToken" | func azure functionapp publish $AZ_FUNCTIONS_APP_NAME --build-native-deps --force
     - language: python
       python:
         - "3.6"

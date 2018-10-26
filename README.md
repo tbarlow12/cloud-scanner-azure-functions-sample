@@ -121,14 +121,21 @@ az group deployment create
 
 #### Deploying Function App Code
 
-variables
+This repo is set up to use Travis CI to deploy code from the `master` branch. In order for this to work properly, you will need to use the service principal created previously (or create a new one) and add the following environment variables to your Travis settings with the appropriate values: 
 
 ```
-APP_ID=<service-principal-app-id>
-PASSWORD=<service-principal-secret>
-TENANT_ID=<service-principal-tenant-id>
+AZ_SP_ID=<service-principal-app-id>
+AZ_SP_SECRET=<service-principal-secret>
+AZ_TENANT_ID=<service-principal-tenant-id>
 GITHUB_TOKEN=<github-token>
-APP_NAME=<name-of-functions-app>
+AZ_FUNCTIONS_APP_NAME=<name-of-functions-app>
+```
+
+To deploy from your machine, create and activate your virtual environment and run:
+
+```bash
+func azure functionapp publish <your-function-app-name> --build-native-deps --force
+```
 
 ## Contributing
 
