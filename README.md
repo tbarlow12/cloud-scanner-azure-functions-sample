@@ -93,6 +93,9 @@ The following are a list of related projects that are dependencies for the Azure
     ```
 
 ## Publish Function App to Azure
+
+#### Azure Resources
+
 The Azure Functions Sample runs on a Linux consumption plan with python support.  The ARM template is complete and deploys the following resources:
 - Functions App
 - Linux Consumption App Service Plan
@@ -115,6 +118,17 @@ az group deployment create
         environment=$environment 
         application_name=$applicationName
 ```
+
+#### Deploying Function App Code
+
+variables
+
+```
+APP_ID=<service-principal-app-id>
+PASSWORD=<service-principal-secret>
+TENANT_ID=<service-principal-tenant-id>
+GITHUB_TOKEN=<github-token>
+APP_NAME=<name-of-functions-app>
 
 ## Contributing
 
